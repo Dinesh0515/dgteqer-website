@@ -1,14 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>DGTEQER Coming Soon</title>
-    <link rel="stylesheet" href="src/styles/main.css">
+    <link rel="stylesheet" href="src/styles/main.css" />
+    <style>
+        .contact-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            border: 2px solid;
+            border-image: linear-gradient(to right, #5551ff, #ff4343) 1;
+            background: #0f0f0f;
+            color: white;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 1000;
+        }
+
+        .popup-form {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #f9fbfd;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            z-index: 2000;
+            width: 400px;
+        }
+
+        .popup-form h2 {
+            margin-top: 0;
+        }
+
+        .popup-form input,
+        .popup-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .popup-form button {
+            background: #1e1e1e;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .popup-form .close-btn {
+            background: none;
+            color: #333;
+            border: none;
+            font-size: 20px;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
+    <button class="contact-btn" onclick="togglePopup()">Get in touch</button>
+
     <div class="container">
         <h1>The Future Doesn’t Wait. Neither Do We.<br>DGTEQER is Coming Soon.</h1>
     </div>
+
+    <div id="popupForm" class="popup-form">
+        <button class="close-btn" onclick="togglePopup()">×</button>
+        <h2>Get in Touch</h2>
+        <p>Define your goals and identify areas where AI can add value to your business</p>
+        <input type="text" placeholder="Full Name" />
+        <input type="email" placeholder="Email" />
+        <input type="text" placeholder="Subject" />
+        <textarea placeholder="Message" rows="4"></textarea>
+        <button>Send a Message</button>
+    </div>
+
+    <script>
+        function togglePopup() {
+            const popup = document.getElementById("popupForm");
+            popup.style.display = popup.style.display === "block" ? "none" : "block";
+        }
+    </script>
 </body>
 </html>
